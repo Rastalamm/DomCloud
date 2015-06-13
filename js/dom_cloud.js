@@ -1,27 +1,18 @@
-//window.onload = function (){
+ window.onload = function (){
 
 
 var masterArr = [];
 var masterList = {};
 
   var mover = function(node){
-//debugger;
 
-  //console.log(node.nodeName);
   masterArr.push(node.nodeName)
 
+    for(var j = 0; j < node.attributes.length; j++){
+      console.log(node.attributes[j].name);
 
-
-
-  for(var j = 0; j < node.attributes.length; j++){
-    console.log(node.attributes[j].name);
-
-    masterArr.push(node.attributes[j].name);
-    //console.log('fasdfa', masterArr.length);
-
-  }
-
-
+      masterArr.push(node.attributes[j].name);
+    }
 
     if(node.children.length > 0){
 
@@ -29,41 +20,61 @@ var masterList = {};
 
         mover(node.children[i]);
 
-      };
+      }
+
     }else{
       console.log('No more children');
       return;
     }
 
-  masterArr.map(function(current){
+    masterArr.map(function(current){
 
-    var exists = masterList.hasOwnProperty(current);
+      var exists = masterList.hasOwnProperty(current);
 
-    if(exists){
-      masterList[current] += 1;
+      if(exists){
+        masterList[current] += 1;
 
-    }else{
-      masterList[current] = 1;
+      }else{
+        masterList[current] = 1;
 
-    }
+      }
 
-    masterArr = [];
+      masterArr = [];
 
-  });
+    });
+
+
+
+
+
+  };
+
+  mover(document.body);
+
+  var listSorter = [];
+
+  for(var q in masterList){
+    listSorter.push([q, masterList[q]])
+  }
+    listSorter.sort(function(a,b){return  b[1] - a[1]});
+
+  var node;
+  for(var p = 0; p < 20; p++){
+    node = document.getElementById('dom_cloud_container');
+
+    var divy = document.createElement('div');
+    divy.innerHTML = listSorter[p][0];
+    divy.style.fontSize = listSorter[p][1] * .1 + 'em';
+    //assign stlye size
+    node.appendChild(divy);
+
+  }
+
+
+
+
 
 
 
 };
-
-//console.log('master array ', masterArr.length);
-
-
-
-
-
-
-
-
-// };
-
 
