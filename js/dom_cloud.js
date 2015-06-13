@@ -5,7 +5,7 @@
 
   var mover = function(node){
     //pushes all the node names into the temp array
-    masterArr.push(node.nodeName)
+    masterArr.push(node.nodeName);
     //pushes all the attribute names into the temp array, if there are more than one
     for(var j = 0; j < node.attributes.length; j++){
       masterArr.push(node.attributes[j].name);
@@ -43,10 +43,10 @@
   var listSorter = [];
 
   for(var q in masterList){
-    listSorter.push([q, masterList[q]])
+    listSorter.push([q, masterList[q]]);
   }
   //Sorts the inner arrays by highest count
-  listSorter.sort(function(a,b){return  b[1] - a[1]});
+  listSorter.sort(function(a,b){return  b[1] - a[1];});
 
   //creates a generic div to be placed directly after the body opening
   var node = document.createElement('div');
@@ -58,7 +58,7 @@
   for(var p = 0; p < 20; p++){
     var divy = document.createElement('div');
     divy.innerHTML = listSorter[p][0];
-    divy.style.fontSize = listSorter[p][1] * .1 + 'px';
+    divy.style.fontSize = listSorter[p][1] * (.1) + 'px';
     divy.id = 'top_20_list';
     node.appendChild(divy);
   }
@@ -66,3 +66,4 @@
 
 };
 
+module.exports = domCloud;
