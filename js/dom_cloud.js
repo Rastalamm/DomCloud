@@ -59,7 +59,12 @@ var masterList = {};
     listSorter.sort(function(a,b){return  b[1] - a[1]});
 
   var node;
+
+
+
   for(var p = 0; p < 20; p++){
+
+
     node = document.getElementById('dom_cloud_container');
 
     var divy = document.createElement('div');
