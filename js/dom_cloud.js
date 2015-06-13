@@ -1,29 +1,28 @@
-window.onload = function (){
+//window.onload = function (){
 
-  var count = 0;
 
-  function mover(element){
 
-    //base case!
-    if(element.childElementCount > 0){
+
+  var mover = function(node){
+  console.log(node.nodeName);
+    if(node.children.length > 0){
+
+      for (var i = 0; i < node.children.length; i++) {
+
+        mover(node.children[i]);
+
+      };
+    }else{
+      console.log('No more children');
       return;
     }
 
-  //Will go through the body until it his the last child
-  //of the first sibling
-    element = element.children[count++];
-    mover(element);
+
+  };
 
 
+// mover(document.body);
 
-    count += 1;
-
-    //mover(element);
-  }
-
-
-mover(document.body);
-
-};
+// };
 
 
