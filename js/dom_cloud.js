@@ -5,16 +5,21 @@ var masterArr = [];
 var masterList = {};
 
   var mover = function(node){
+//debugger;
 
-  console.log(node.nodeName);
+  //console.log(node.nodeName);
   masterArr.push(node.nodeName)
 
-  // for(var j = 0; j < node.attributes.length; j++){
-  //   console.log(node.attributes[j].name);
-  //   masterArr.push(node.attributes[j].name);
-  // }
 
 
+
+  for(var j = 0; j < node.attributes.length; j++){
+    console.log(node.attributes[j].name);
+
+    masterArr.push(node.attributes[j].name);
+    //console.log('fasdfa', masterArr.length);
+
+  }
 
 
 
@@ -36,9 +41,13 @@ var masterList = {};
 
     if(exists){
       masterList[current] += 1;
+
     }else{
       masterList[current] = 1;
+
     }
+
+    masterArr = [];
 
   });
 
@@ -46,8 +55,14 @@ var masterList = {};
 
 };
 
+//console.log('master array ', masterArr.length);
 
-// mover(document.body);
+
+
+
+
+
+
 
 // };
 
