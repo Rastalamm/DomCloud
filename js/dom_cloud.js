@@ -58,7 +58,7 @@
   for(var p = 0; p < 20; p++){
     var divy = document.createElement('div');
     divy.innerHTML = listSorter[p][0];
-    divy.style.fontSize = listSorter[p][1] * .1 + 'em';
+    divy.style.fontSize = listSorter[p][1] * .1 + 'px';
     divy.id = 'top_20_list';
     node.appendChild(divy);
   }
