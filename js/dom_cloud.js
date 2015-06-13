@@ -60,7 +60,7 @@
     var divy = document.createElement('div');
     divy.innerHTML = listSorter[p][0];
     divy.style.fontSize = listSorter[p][1] * .1 + 'em';
-    divy.id = 'list';
+    divy.id = 'top_20_list';
     node.appendChild(divy);
   }
 
