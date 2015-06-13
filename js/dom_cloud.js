@@ -56,21 +56,21 @@ var masterList = {};
   for(var q in masterList){
     listSorter.push([q, masterList[q]])
   }
-    listSorter.sort(function(a,b){return  b[1] - a[1]});
+  listSorter.sort(function(a,b){return  b[1] - a[1]});
 
-  var node;
+
+  var node = document.createElement('div');
+  node.className = 'most_common_list';
+  node = document.body.insertBefore(node, document.body.firstChild);
 
 
 
   for(var p = 0; p < 20; p++){
 
-
-    node = document.getElementById('dom_cloud_container');
-
     var divy = document.createElement('div');
     divy.innerHTML = listSorter[p][0];
     divy.style.fontSize = listSorter[p][1] * .1 + 'em';
-    //assign stlye size
+    divy.id = 'list';
     node.appendChild(divy);
 
   }
