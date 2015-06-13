@@ -1,6 +1,5 @@
  window.onload = function (){
 
-
   var masterArr = [];
   var masterList = {};
 
